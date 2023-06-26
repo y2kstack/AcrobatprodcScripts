@@ -1,4 +1,4 @@
-function convertToWords(number) {
+function Num2word(number) {
   const ones = [
     '', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
     'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen',
@@ -20,17 +20,17 @@ function convertToWords(number) {
   }
   
   if (Math.floor(number / 1000000) > 0) {
-    word += convertToWords(Math.floor(number / 1000000)) + ' million ';
+    word += Num2word(Math.floor(number / 1000000)) + ' million ';
     number %= 1000000;
   }
   
   if (Math.floor(number / 1000) > 0) {
-    word += convertToWords(Math.floor(number / 1000)) + ' thousand ';
+    word += Num2word(Math.floor(number / 1000)) + ' thousand ';
     number %= 1000;
   }
   
   if (Math.floor(number / 100) > 0) {
-    word += convertToWords(Math.floor(number / 100)) + ' hundred ';
+    word += Num2word(Math.floor(number / 100)) + ' hundred ';
     number %= 100;
   }
   
@@ -47,8 +47,3 @@ function convertToWords(number) {
   
   return word.trim()
 }
-
-// Example usage
-const number = 12567;
-const words = convertToWords(number);
-console.log(words);  // Output: "twelve thousand five hundred sixty-seven dollars"
